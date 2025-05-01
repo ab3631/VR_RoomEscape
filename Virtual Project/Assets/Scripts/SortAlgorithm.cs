@@ -50,8 +50,8 @@ public class SortAlgorithm : MonoBehaviour
         while (temp.Count > 0) 
         { 
             int2 sortIndex = temp.Dequeue();
+            Debug.Log(sortIndex.ToString());
             StartCoroutine(QuickSort(sortIndex.x, sortIndex.y));
-            Debug.Log(queue.Count);
         }
     }
     
@@ -60,8 +60,10 @@ public class SortAlgorithm : MonoBehaviour
         if (start >= end) yield break;
         int s = start;
         int e = end;
-        var standard = boxList[e];
+        var standard = boxList[end];
         e--;
+        standard.transform.DOLocalMove(new Vector3((s + e) / 2 * 1.2f, 3, 0), 1f);
+        yield return new WaitForSeconds(1f);
         while (s <= e)
         {
             bool a = IsBigger(boxList[s].Index,standard.Index);
@@ -82,7 +84,12 @@ public class SortAlgorithm : MonoBehaviour
                 }
             }
         }
-        if (s != end) yield return StartCoroutine(SwapObject(s, end));
+        standard.transform.DOMove(boxList[s].transform.position, 1f);
+        boxList[s].transform.DOLocalMove(new Vector3(end * 1.2f, 0, 0),1f);
+        GameObjectIndex temp = boxList[s];
+        boxList[s] = boxList[end];
+        boxList[end] = temp;
+        yield return new WaitForSeconds(1f);
         if (start < e)
         {
             queue.Enqueue(new int2(start, e));
@@ -91,7 +98,6 @@ public class SortAlgorithm : MonoBehaviour
         {
             queue.Enqueue(new int2(s + 1, end));
         }
-        
     }
     public IEnumerator SwapObject(int a, int b)
     {
