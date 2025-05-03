@@ -292,3 +292,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 8747489520987248822}
+  sortedMaterial: {fileID: 0}

@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameObjectIndex : MonoBehaviour
 {
     public TextMeshPro textMeshPro;
+    public Material sortedMaterial;
+    
     private int _index;
     public int Index
     {
@@ -29,4 +31,9 @@ public class GameObjectIndex : MonoBehaviour
         textMeshPro.text = _index.ToString();
     }
 
+
+    public void SetBlue()
+    {
+        GetComponent<Renderer>().materials[0] = sortedMaterial;
+    }
 }
