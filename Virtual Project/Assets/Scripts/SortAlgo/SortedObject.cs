@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
-public class GameObjectIndex : MonoBehaviour
+public class SortedObject : MonoBehaviour
 {
     public TextMeshPro textMeshPro;
     public Material sortedMaterial;
-    
+
+    public Action OnClicked;
     private int _index;
     public int Index
     {
@@ -30,10 +33,15 @@ public class GameObjectIndex : MonoBehaviour
     {
         textMeshPro.text = _index.ToString();
     }
-
-
-    public void SetBlue()
+    public void OnObjectClick()
     {
-        GetComponent<Renderer>().materials[0] = sortedMaterial;
+        OnClicked?.Invoke();
+    }
+
+    public void SetFixed()
+    {
+        GetComponent<Renderer>().materials = new List<Material>() { sortedMaterial}.ToArray();
+        OnClicked = null;
+        GetComponent<XRSimpleInteractable>().enabled = false;
     }
 }
