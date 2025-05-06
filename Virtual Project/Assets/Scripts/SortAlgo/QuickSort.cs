@@ -14,7 +14,6 @@ public class QuickSort : MonoBehaviour, ISort
     private void Start()
     {
         StartCoroutine(QuickSortCoroutine());
-        Debug.Log(transform.position);
     }
     public void SetObject(List<SortedObject> list)
     {
@@ -28,21 +27,26 @@ public class QuickSort : MonoBehaviour, ISort
     public void SortSequence()
     {
     }
+    void Setstandard(SortedObject obj)
+    {
+        standardObject = obj;
+    }
 
     IEnumerator QuickSortCoroutine()
     {
         yield return null;
         foreach (SortedObject obj in indexObjects)
         {
-            obj.OnClicked = () => standardObject = obj;
+            obj.OnClicked += Setstandard;
+            obj.GetComponent<Collider>().enabled = true;
         }
         yield return new WaitUntil(()=>  standardObject != null);
         foreach (SortedObject obj in indexObjects)
         {
-            obj.OnClicked = null;
+            obj.OnClicked -= Setstandard;
+            obj.GetComponent<Collider>().enabled = false;
         }
 
-        Debug.Log("StandardObject is exist");
         indexObjects.Remove(standardObject);
         standardObject.SetFixed();
         standardObject.transform.DOLocalMove(Vector3.up*2, 1f);
@@ -60,14 +64,17 @@ public class QuickSort : MonoBehaviour, ISort
             if (left && right)
             {
                 // 시각화 정렬
+                // up
                 indexObjects[s].transform.DOLocalMove(indexObjects[s].transform.localPosition + Vector3.up, 0.5f);
                 indexObjects[e].transform.DOLocalMove(indexObjects[e].transform.localPosition + Vector3.up, 0.5f);
                 yield return new WaitForSeconds(0.5f);
+                // switch
                 Vector3 leftPos = indexObjects[s].transform.position;
                 Vector3 rightPos = indexObjects[e].transform.position;
                 indexObjects[s].transform.DOMove(rightPos, 1f);
                 indexObjects[e].transform.DOMove(leftPos, 1f);
                 yield return new WaitForSeconds(1f);
+                // down
                 indexObjects[s].transform.DOLocalMove(indexObjects[s].transform.localPosition + Vector3.down, 0.5f);
                 indexObjects[e].transform.DOLocalMove(indexObjects[e].transform.localPosition + Vector3.down, 0.5f);
                 yield return new WaitForSeconds(0.5f);
@@ -132,9 +139,7 @@ public class QuickSort : MonoBehaviour, ISort
         obj.transform.localRotation = Quaternion.identity;
         var sort = obj.AddComponent<QuickSort>();
         // 위치 계산
-        Debug.Log($"count {list.Count} + distance sum = {list.Sum((obj) => obj.transform.localPosition.x)}");
         var avg = list.Sum((obj) => obj.transform.localPosition.x) / (list.Count);
-        Debug.Log($"avg = {avg}");
         obj.transform.localPosition = new Vector3(avg, 0, 0);
         sort.SetObject(list);
         return sort;

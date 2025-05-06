@@ -62,9 +62,9 @@ public class MergeSort : MonoBehaviour, ISort
             right.parent = this;
             right.SetObject(indexObjects.Skip(mid).ToList());
 
-            Debug.Log(name + ":" + indexObjects.Count);
+            //Debug.Log(name + ":" + indexObjects.Count);
             yield return new WaitUntil(() => left.isCompleted && right.isCompleted);
-            Debug.Log("delay");
+            //Debug.Log("delay");
             yield return new WaitUntil(() => canMerge);
             var list = new List<SortedObject>();
             
@@ -122,7 +122,7 @@ public class MergeSort : MonoBehaviour, ISort
         else
         {
             canMerge = true;
-            Debug.Log(name + ":" + canMerge);
+            //Debug.Log(name + ":" + canMerge);
         }
     }
 

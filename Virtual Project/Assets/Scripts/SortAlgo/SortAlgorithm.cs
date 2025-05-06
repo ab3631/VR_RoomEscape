@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.Mathematics;
 
 using UnityEngine;
@@ -30,6 +31,7 @@ public class SortAlgorithm : MonoBehaviour
             var rand = UnityEngine.Random.Range(0, numList.Count - 1);
             index.Index = numList[rand];
             numList.RemoveAt(rand);
+            index.OnClicked += AddAnswer;
         }
         for (int i = 0; i < list.Count; i++)
         {
@@ -43,5 +45,21 @@ public class SortAlgorithm : MonoBehaviour
     {
         sort.SortSequence();
     }
-    
+
+    public List<int> Answer;
+    void AddAnswer(SortedObject obj)
+    {
+        if(Answer == null) Answer = new List<int>();
+        Answer.Add(obj.Index);
+        ShowAnswer();
+    }
+    public void ShowAnswer()
+    {
+        string s = "Answer : ";
+        foreach (var item in Answer)
+        {
+            s += item.ToString();
+        }
+        GetComponentInChildren<TextMeshPro>().text = s;
+    }
 }

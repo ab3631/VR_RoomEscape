@@ -10,7 +10,7 @@ public class SortedObject : MonoBehaviour
     public TextMeshPro textMeshPro;
     public Material sortedMaterial;
 
-    public Action OnClicked;
+    public Action<SortedObject> OnClicked;
     private int _index;
     public int Index
     {
@@ -35,13 +35,12 @@ public class SortedObject : MonoBehaviour
     }
     public void OnObjectClick()
     {
-        OnClicked?.Invoke();
+        OnClicked?.Invoke(this);
     }
 
     public void SetFixed()
     {
         GetComponent<Renderer>().materials = new List<Material>() { sortedMaterial}.ToArray();
-        OnClicked = null;
         GetComponent<XRSimpleInteractable>().enabled = false;
     }
 }
