@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ public class SortedObject : MonoBehaviour
 {
     public TextMeshPro textMeshPro;
     public Material sortedMaterial;
-
+    public bool isFixed;
     public Action<SortedObject> OnClicked;
     private int _index;
     public int Index
@@ -21,13 +22,16 @@ public class SortedObject : MonoBehaviour
         set
         {
             _index = value;
-            UpdateText();
+            //UpdateText();
         }
     }
 
     private void Start()
     {
-        textMeshPro = GetComponentInChildren<TextMeshPro>();
+        isFixed = false;
+        var interact  = GetComponent<XRSimpleInteractable>();
+        interact.selectEntered.AddListener((args) => OnObjectClick());
+        //textMeshPro = GetComponentInChildren<TextMeshPro>();
     }
     public void UpdateText()
     {
@@ -40,7 +44,8 @@ public class SortedObject : MonoBehaviour
 
     public void SetFixed()
     {
-        GetComponent<Renderer>().materials = new List<Material>() { sortedMaterial}.ToArray();
+        transform.DORotate(transform.eulerAngles + new Vector3(0,180,0), 0.5f);
         GetComponent<XRSimpleInteractable>().enabled = false;
+        isFixed = true;
     }
 }

@@ -3,41 +3,72 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.Mathematics;
-
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SortAlgorithm : MonoBehaviour
 {
-    public int listNum;
-    public GameObject boxPrefab;
+    int listNum;
+
+    public GameObject Runes;
+    public List<GameObject> objList;
+
+    public GameObject Pillars;
+    public List<Transform> posList;
     public ISort sort;
+
+    
     private void Awake()
     {
         sort = GetComponentInChildren<ISort>();
-        sort.SetObject(SetBlock());
-
+        var list = SetBlock();
+        sort.SetObject(list, posList,isSorted);
+        
+        
     }
-    [ContextMenu("SetBlockList")]
+    [ContextMenu("SetRune&Pillar")]
+    public void SetLists()
+    {
+        objList = new List<GameObject>();
+        for (int i = 0; i < Runes.transform.childCount; i++)
+        {
+            objList.Add(Runes.transform.GetChild(i).gameObject);
+        }
+
+        posList = new List<Transform>();
+        for(int i = 0; i < Pillars.transform.childCount; i++)
+        {
+            posList.Add(Pillars.transform.GetChild(i));
+        }
+    }
+
+    List<SortedObject> sortedObjectList;
     public List<SortedObject> SetBlock()
     {
-        var list = new List<SortedObject>();
-        var numList = Enumerable.Range(1,listNum+1).ToList();
+        sortedObjectList = new List<SortedObject>();
+        listNum = objList.Count;
         for(int i = 0; i < listNum; i++)
         {
-            var childObj = Instantiate(boxPrefab,transform);
-            var index = childObj.GetComponent<SortedObject>();
-            list.Add(index);
-            var rand = UnityEngine.Random.Range(0, numList.Count - 1);
-            index.Index = numList[rand];
-            numList.RemoveAt(rand);
+            var index = objList[i].AddComponent<SortedObject>();
+            sortedObjectList.Add(index);
+            index.Index = i+1;
             index.OnClicked += AddAnswer;
         }
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < listNum; i++)
         {
-            list[i].transform.localPosition = new Vector3((i-listNum/2f) * 1.2f, 0, 0);
+            var rand = Random.Range(0, sortedObjectList.Count-i);
+            var temp = sortedObjectList[i];
+            sortedObjectList[i] = sortedObjectList[rand];
+            sortedObjectList[rand] = temp;
         }
-        return list;
+
+        for (int i = 0; i < sortedObjectList.Count; i++)
+        {
+            sortedObjectList[i].transform.SetParent(posList[i]);
+            sortedObjectList[i].transform.localPosition = new Vector3(0, 3, 1);
+        }
+        return sortedObjectList;
     }
 
     
@@ -57,7 +88,8 @@ public class SortAlgorithm : MonoBehaviour
     {
         string s = "Answer : ";
         s += GetAnswer();
-        GetComponentInChildren<TextMeshPro>().text = s;
+        Debug.Log(s);
+        //GetComponentInChildren<TextMeshPro>().text = s;
     }
     public string GetAnswer()
     {
@@ -68,4 +100,13 @@ public class SortAlgorithm : MonoBehaviour
         }
         return s;
     }
+    void isSorted()
+    {
+        foreach (var item in sortedObjectList)
+        {
+            if (item.isFixed == false) return;
+        }
+        OnSorted?.Invoke();
+    }
+    public UnityEvent OnSorted;
 }
