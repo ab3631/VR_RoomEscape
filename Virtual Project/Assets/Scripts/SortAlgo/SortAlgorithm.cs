@@ -56,10 +56,16 @@ public class SortAlgorithm : MonoBehaviour
     public void ShowAnswer()
     {
         string s = "Answer : ";
+        s += GetAnswer();
+        GetComponentInChildren<TextMeshPro>().text = s;
+    }
+    public string GetAnswer()
+    {
+        string s = "";
         foreach (var item in Answer)
         {
             s += item.ToString();
         }
-        GetComponentInChildren<TextMeshPro>().text = s;
+        return s;
     }
 }
