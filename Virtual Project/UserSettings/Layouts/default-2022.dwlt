@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -266,8 +266,8 @@ MonoBehaviour:
     y: 633
     width: 1466
     height: 314
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
@@ -440,23 +440,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 369dffff
-      m_LastClickedID: -25290
-      m_ExpandedIDs: 22a4ffff30a4ffff48a4ffff20fbffffbea50000
+      m_SelectedIDs: 32efffff
+      m_LastClickedID: -4302
+      m_ExpandedIDs: c0f0ffffe8f0ffff3cf1ffff14fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: SM_Env_Wall_Trim_Edge_39
-        m_OriginalName: SM_Env_Wall_Trim_Edge_39
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -3500
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
       m_SearchString: 
@@ -875,9 +875,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -33.51776, y: 9.055868, z: -44.492264}
+    m_Target: {x: 2.232679, y: -0.6483233, z: 64.803764}
     speed: 2
-    m_Value: {x: -33.51776, y: 9.055868, z: -44.492264}
+    m_Value: {x: 2.232679, y: -0.6483233, z: 64.803764}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -923,13 +923,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0027118637, y: 0.9928835, z: -0.11701312, w: -0.023222538}
+    m_Target: {x: -0.034175478, y: 0.022478487, z: 0.0007873312, w: 0.9991895}
     speed: 2
-    m_Value: {x: -0.0027117874, y: 0.99285555, z: -0.117009826, w: -0.023221884}
+    m_Value: {x: -0.034174565, y: 0.022477888, z: 0.0007873102, w: 0.9991628}
   m_Size:
-    m_Target: 1.1767762
+    m_Target: 0.549667
     speed: 2
-    m_Value: 1.1767762
+    m_Value: 0.549667
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1000,7 +1000,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Sounds
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1008,16 +1008,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Sounds
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\user\Documents\GitHub\VR_RoomEscape\Virtual Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 147}
-    m_SelectedIDs: 66c10100
-    m_LastClickedID: 115046
-    m_ExpandedIDs: 0000000096d0000098d000009ad000009cd000009ed0000000ca9a3b
+    scrollPos: {x: 0, y: 163}
+    m_SelectedIDs: f4ff0100
+    m_LastClickedID: 131060
+    m_ExpandedIDs: 000000003ad100003cd100003ed1000040d1000042d1000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1045,7 +1045,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000096d0000098d000009ad000009cd000009ed00000
+    m_ExpandedIDs: 000000003ad100003cd100003ed1000040d1000042d10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1070,9 +1070,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0aa4ffff
-    m_LastClickedInstanceID: -23542
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 48f1ffff
+    m_LastClickedInstanceID: -3768
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000e69100002e95000012930000c2780000f4d700006e3901002e7e00005a2c010000000000d0020100
     m_RenameOverlay:
       m_UserAcceptedRename: 0

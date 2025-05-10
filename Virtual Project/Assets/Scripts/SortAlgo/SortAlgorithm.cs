@@ -12,28 +12,54 @@ public class SortAlgorithm : MonoBehaviour
     int listNum;
 
     public GameObject Runes;
-    public List<GameObject> objList;
+    public List<SortedObject> sortedObjectList;
 
     public GameObject Pillars;
     public List<Transform> posList;
-    public ISort sort;
+    public QuickSort sort;
 
-    
+    public TextMeshPro signBoard;
+    public void Init()
+    {
+        var list = SetBlock();
+        sort.algorithm = this;
+        sort.SetObject(list, posList, isSorted);
+        for(int i=sort.transform.childCount-1; i >= 0; i--)
+        {
+            Destroy(sort.transform.GetChild(i).gameObject);
+        }
+        foreach(SortedObject obj in sortedObjectList)
+        {
+            obj.SetFixed(false);
+            obj.GetComponent<Collider>().enabled = true;
+        }
+        Answer.Clear();
+        Complexity.Clear();
+        ShowAnswer();
+    }
     private void Awake()
     {
-        sort = GetComponentInChildren<ISort>();
-        var list = SetBlock();
-        sort.SetObject(list, posList,isSorted);
-        
-        
+        sort = GetComponentInChildren<QuickSort>();
+        Init();
     }
     [ContextMenu("SetRune&Pillar")]
     public void SetLists()
     {
-        objList = new List<GameObject>();
+        sortedObjectList = new List<SortedObject>();
         for (int i = 0; i < Runes.transform.childCount; i++)
         {
-            objList.Add(Runes.transform.GetChild(i).gameObject);
+            var child = Runes.transform.GetChild(i);
+            SortedObject temp;
+            if (child.GetComponent<SortedObject>() == null)
+            {
+                 temp = child.AddComponent<SortedObject>();
+            }
+            else
+            {
+                temp = child.GetComponent<SortedObject>();
+            }
+            sortedObjectList.Add(temp);
+            
         }
 
         posList = new List<Transform>();
@@ -43,17 +69,14 @@ public class SortAlgorithm : MonoBehaviour
         }
     }
 
-    List<SortedObject> sortedObjectList;
     public List<SortedObject> SetBlock()
     {
-        sortedObjectList = new List<SortedObject>();
-        listNum = objList.Count;
+        listNum = sortedObjectList.Count;
         for(int i = 0; i < listNum; i++)
         {
-            var index = objList[i].AddComponent<SortedObject>();
-            sortedObjectList.Add(index);
+            var index = sortedObjectList[i];
             index.Index = i+1;
-            index.OnClicked += AddAnswer;
+            index.OnClicked = AddAnswer;
         }
         for (int i = 0; i < listNum; i++)
         {
@@ -66,30 +89,25 @@ public class SortAlgorithm : MonoBehaviour
         for (int i = 0; i < sortedObjectList.Count; i++)
         {
             sortedObjectList[i].transform.SetParent(posList[i]);
-            sortedObjectList[i].transform.localPosition = new Vector3(0, 3, 1);
+            sortedObjectList[i].transform.localPosition = new Vector3(0, 2, 1);
         }
         return sortedObjectList;
     }
 
     
-    public void Execute()
-    {
-        sort.SortSequence();
-    }
 
     public List<int> Answer;
     void AddAnswer(SortedObject obj)
     {
         if(Answer == null) Answer = new List<int>();
         Answer.Add(obj.Index);
-        ShowAnswer();
+        
     }
     public void ShowAnswer()
     {
-        string s = "Answer : ";
-        s += GetAnswer();
-        Debug.Log(s);
-        //GetComponentInChildren<TextMeshPro>().text = s;
+        //string s = "Count : ";
+        //s += GetAnswer();
+        signBoard.text = GetComplexity().ToString();
     }
     public string GetAnswer()
     {
@@ -106,7 +124,30 @@ public class SortAlgorithm : MonoBehaviour
         {
             if (item.isFixed == false) return;
         }
-        OnSorted?.Invoke();
+        if(GetComplexity() > 41)
+        {
+            Init();
+        }
+        else
+        {
+            OnSorted?.Invoke();
+        }
     }
     public UnityEvent OnSorted;
+
+
+    public List<int> Complexity = new List<int>();
+    public void AddComplexity(int i)
+    {
+        Complexity.Add(i);
+        Debug.Log(i);
+        ShowAnswer();
+    }
+    public int GetComplexity()
+    {
+        int i = Complexity.Sum();
+        Debug.Log(i);
+        return i;
+        
+    }
 }
