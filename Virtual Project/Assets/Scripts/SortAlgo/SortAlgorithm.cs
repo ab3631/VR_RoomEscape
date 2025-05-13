@@ -150,4 +150,13 @@ public class SortAlgorithm : MonoBehaviour
         return i;
         
     }
+
+
+    public void SetDestroy()
+    {
+        Destroy(gameObject, 1f);
+        Destroy(signBoard.gameObject, 1f);
+    }
+
+
 }
