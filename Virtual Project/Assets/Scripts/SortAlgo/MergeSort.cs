@@ -7,7 +7,7 @@ using Unity.Mathematics;
 using UnityEditor.Search;
 using UnityEngine;
 
-public class MergeSort : MonoBehaviour, ISort
+public class MergeSort : MonoBehaviour
 {
     public bool canMerge {  get; private set; }
     public MergeSort parent;
