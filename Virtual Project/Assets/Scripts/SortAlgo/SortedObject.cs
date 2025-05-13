@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,9 +8,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class SortedObject : MonoBehaviour
 {
-    public TextMeshPro textMeshPro;
-    public Material sortedMaterial;
-
+    public TextMeshPro textMeshPro
+    {
+        get
+        {
+            return GetComponentInChildren<TextMeshPro>();
+        }
+    }
+    public bool isFixed;
     public Action<SortedObject> OnClicked;
     private int _index;
     public int Index
@@ -27,7 +33,10 @@ public class SortedObject : MonoBehaviour
 
     private void Start()
     {
-        textMeshPro = GetComponentInChildren<TextMeshPro>();
+        isFixed = false;
+        var interact  = GetComponent<XRSimpleInteractable>();
+        interact.selectEntered.AddListener((args) => OnObjectClick());
+        
     }
     public void UpdateText()
     {
@@ -38,9 +47,19 @@ public class SortedObject : MonoBehaviour
         OnClicked?.Invoke(this);
     }
 
-    public void SetFixed()
+    public void SetFixed(bool isFix)
     {
-        GetComponent<Renderer>().materials = new List<Material>() { sortedMaterial}.ToArray();
-        GetComponent<XRSimpleInteractable>().enabled = false;
+        if (isFix)
+        {
+            transform.DOLocalRotate(new Vector3(90, 0, 0), 0.5f);
+            GetComponent<XRSimpleInteractable>().enabled = false;
+            isFixed = true;
+        }
+        else
+        {
+            transform.DOLocalRotate(new Vector3(90, 180, 0), 0.5f);
+            GetComponent<XRSimpleInteractable>().enabled = true;
+            isFixed = false;
+        }
     }
 }
