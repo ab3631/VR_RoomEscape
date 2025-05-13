@@ -1,1 +1,4 @@
 Virtual[[:space:]]Project/Library/PackageCache/com.unity.burst@1.8.7/.Runtime/libburst-llvm-15.dylib filter=lfs diff=lfs merge=lfs -text
+GyeongiCheonnyeon_Test filter=lfs diff=lfs merge=lfs -text
+SDF.asset filter=lfs diff=lfs merge=lfs -text
+GyeongiCheonnyeon_SDF.asset filter=lfs diff=lfs merge=lfs -text
