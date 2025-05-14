@@ -1,20 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class RecognizeGrab : MonoBehaviour
+public class GenerateOutline : MonoBehaviour
 {
 
     [SerializeField] private Material[] mat = new Material[3];
+    [SerializeField] private XRBaseInteractable interactable;
 
-    bool isActive;
+    [SerializeField] private bool isActive;
 
     // Start is called before the first frame update
     void Start()
     {
 
         isActive = true;
+
+        interactable = GetComponent<XRBaseInteractable>();
+
+        if (interactable == null) Debug.Log("Can't Find Interactable");
+
+        GetComponent<XRBaseInteractable>().firstHoverEntered.AddListener(HoverEnter);
+        GetComponent<XRBaseInteractable>().lastHoverExited.AddListener(HoverExit);
 
     }
 
@@ -24,7 +33,7 @@ public class RecognizeGrab : MonoBehaviour
         
     }
 
-    public void HoverEnter()
+    public void HoverEnter(HoverEnterEventArgs args)
     {
 
         if (isActive) gameObject.GetComponent<MeshRenderer>().material = mat[1];
@@ -32,7 +41,7 @@ public class RecognizeGrab : MonoBehaviour
 
     }
 
-    public void HoverExit()
+    public void HoverExit(HoverExitEventArgs args)
     {
 
         gameObject.GetComponent<MeshRenderer>().material = mat[0];

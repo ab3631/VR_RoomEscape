@@ -11,9 +11,30 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] InputActionReference inputReference;
 
+    [SerializeField] public PlayerUI playerUI;
+
     bool check;
 
-    // Start is called before the first frame update
+    // UIManager ΩÃ±€≈Ê º≥¡§
+    private static UIManager instance = null;
+
+    public static UIManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
 
@@ -21,10 +42,12 @@ public class UIManager : MonoBehaviour
 
         UIOnOff();
         inputReference.action.started += OnOffButtonClick;
+        playerUI = GameObject.Find("Canvas(PlayerUI)").GetComponent<PlayerUI>();
+
+        if(playerUI != null) Debug.Log("Find PlayerUI");
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -62,6 +85,13 @@ public class UIManager : MonoBehaviour
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
+
+    }
+
+    public void ClickObject(string text)
+    {
+
+        playerUI.addItem(text);
 
     }
 
