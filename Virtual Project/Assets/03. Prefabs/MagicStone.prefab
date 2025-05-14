@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &595896150318348805
 MeshFilter:
@@ -170,7 +170,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 37fc567f8ac80c74db01ddc3f31b964b, type: 2}
   - {fileID: 2100000, guid: 6d92f3c585c767c4585b7ae7663fcce4, type: 2}
   interactable: {fileID: 129559704318671738}
-  isActive: 0
+  isActive: 1
 --- !u!114 &129559704318671738
 MonoBehaviour:
   m_ObjectHideFlags: 0

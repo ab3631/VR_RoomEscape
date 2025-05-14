@@ -19,8 +19,6 @@ public class GenerateOutline : MonoBehaviour
     void Start()
     {
 
-        isActive = true;
-
         interactable = GetComponent<XRBaseInteractable>();
 
         if (interactable == null) Debug.Log("Can't Find Interactable");
