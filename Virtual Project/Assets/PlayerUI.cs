@@ -13,6 +13,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject door;
     int count;
 
+    [SerializeField] private TextMeshProUGUI middleTurmTextMessage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +38,9 @@ public class PlayerUI : MonoBehaviour
         {
 
             door.GetComponent<GenerateOutline>().setIsActive(true);
-            door.GetComponent<DoorOpen>().leftDoor.GetComponent<GenerateOutline>().setIsActive(true);
+            door.GetComponent<DoorOpen>().rightDoor.GetComponent<GenerateOutline>().setIsActive(true);
+
+            middleTurmTextMessage.text = "문을 클릭하여 열어주세요.";
 
         }
 

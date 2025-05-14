@@ -16,6 +16,12 @@ public class GenerateOutline : MonoBehaviour
     public bool getIsActive() { return isActive; }
     public void setIsActive(bool active) { isActive = active; }
 
+    [ContextMenu("SetDefaultMaterial")]
+    public void SetDefaultMat()
+    {
+        mat[0] = GetComponent<Renderer>().materials[0];
+    }
+
     void Start()
     {
 

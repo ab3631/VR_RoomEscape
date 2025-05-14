@@ -18,10 +18,14 @@ public class DoorOpen : MonoBehaviour
     public GameObject leftDoor;
     public GameObject rightDoor;
 
+    public float leftDoorAngle;
+    public float rightDoorAngle;
+
     private void Start()
     {
-        rightDoor.GetComponent<GenerateOutline>().setIsActive(false);
-        leftDoor.GetComponent<GenerateOutline>().setIsActive(false);
+
+        if(rightDoor != null) rightDoor.GetComponent<GenerateOutline>().setIsActive(false);
+        if(leftDoor != null) leftDoor.GetComponent<GenerateOutline>().setIsActive(false);
 
         isHover = false;
         inputReference.action.started += ButtonClick;
@@ -49,8 +53,10 @@ public class DoorOpen : MonoBehaviour
             Debug.Log("Test");
             Open();
 
-
         }
+
+        Debug.Log("Tetasdfasdfasdf");
+
     }
 
     public void OnHover(HoverEnterEventArgs args)
@@ -69,7 +75,19 @@ public class DoorOpen : MonoBehaviour
 
     public void Open()
     {
-        leftDoor.transform.DOLocalRotate(new Vector3(0, -90, 0), 1f);
-        rightDoor.transform.DOLocalRotate(new Vector3(0, 90, 0), 1f);
+        if (leftDoor != null)
+        {
+
+            Debug.Log("Log : leftDoor");
+            leftDoor.transform.DOLocalRotate(new Vector3(0, leftDoorAngle, 0), 1f);
+
+        }    
+        if (rightDoor != null)
+        {
+
+            Debug.Log("Log : rightDoor");
+            rightDoor.transform.DOLocalRotate(new Vector3(0, rightDoorAngle, 0), 1f);
+
+        }
     }
 }
