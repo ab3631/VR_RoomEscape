@@ -12,7 +12,10 @@ public class GenerateOutline : MonoBehaviour
 
     [SerializeField] private bool isActive;
 
-    // Start is called before the first frame update
+
+    public bool getIsActive() { return isActive; }
+    public void setIsActive(bool active) { isActive = active; }
+
     void Start()
     {
 

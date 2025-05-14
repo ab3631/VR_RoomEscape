@@ -32,7 +32,13 @@ public class PlayerUI : MonoBehaviour
 
         item.GetComponentInChildren<TextMeshProUGUI>().text = text;
 
-        if (++count >= 3) door.GetComponent<DoorOpen>().Open();
+        if (++count >= 3)
+        {
+
+            door.GetComponent<GenerateOutline>().setIsActive(true);
+            door.GetComponent<DoorOpen>().leftDoor.GetComponent<GenerateOutline>().setIsActive(true);
+
+        }
 
     }
 
