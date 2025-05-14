@@ -10,10 +10,13 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private Transform itemTransform;
 
+    [SerializeField] private GameObject door;
+    int count;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        count = 0;
     }
 
     // Update is called once per frame
@@ -28,6 +31,8 @@ public class PlayerUI : MonoBehaviour
         GameObject item = Instantiate(itemPrefab, itemTransform);
 
         item.GetComponentInChildren<TextMeshProUGUI>().text = text;
+
+        if (++count >= 3) door.GetComponent<DoorOpen>().Open();
 
     }
 
