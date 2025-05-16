@@ -2,6 +2,7 @@ using DG.Tweening;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,11 +11,18 @@ namespace Puzzle8
 {
     public class PuzzleEight : MonoBehaviour
     {
+        public TextMeshPro signBoard;
+
+        [SerializeField]
+        int[] values;
+
         public UnityEvent isSolved;
         SortedObject[,] puzzlePieces;
 
         List<Vector3> pos;
         PE_piece[,] piecesPos;
+
+        int count = 0;
         public void Start()
         {
             puzzlePieces = new SortedObject[3, 3];
@@ -25,7 +33,7 @@ namespace Puzzle8
                 {
                     Vector3 vec = new Vector3(j - 1, i - 1);
                     var piece = transform.GetChild(0).GetChild(j + i * 3).GetComponent<SortedObject>();
-                    piece.Index = i * 3 + j + 1;
+                    piece.Index = values[i * 3 + j];
                     var obj = transform.GetChild(1).GetChild(j + i * 3).GetComponent<PE_piece>();
                     piecesPos[i, j] = obj;
                     obj.transform.localPosition = vec;
@@ -43,12 +51,11 @@ namespace Puzzle8
             }
             puzzlePieces[2, 2].gameObject.SetActive(false);
 
-            //Mixing
-            foreach (var piece in piecesPos)
-            {
-                SwapPuzzle(piece);
-            }
-
+            count = 0;
+        }
+        private void Update()
+        {
+            signBoard.text = count.ToString();
         }
 
         public PE_piece GetPos(int x, int y)
@@ -69,25 +76,29 @@ namespace Puzzle8
 
         public int SwapPuzzle(PE_piece piece)
         {
-            if (piece.isOccupied) return -1;
+            if (!piece.isOccupied) return -1;
             if (piece.Left !=null && !piece.Left.isOccupied)
             {
                 _Swap(piece, piece.Left);
+                count++;
                 return 4;
             }
             else if (piece.Right != null && !piece.Right.isOccupied)
             {
                 _Swap(piece, piece.Right);
+                count++;
                 return 2;
             }
             else if (piece.Up != null && !piece.Up.isOccupied)
             {
                 _Swap(piece, piece.Up);
+                count++;
                 return 1;
             }
             else if (piece.Down != null && !piece.Down.isOccupied)
             {
                 _Swap(piece, piece.Down);
+                count++;
                 return 3;
             }
             else
@@ -111,13 +122,28 @@ namespace Puzzle8
             int i = 0;
             foreach (var item in piecesPos)
             {
-                i++;
-                if(item.piece.Index != i)
+                Debug.Log($"{item.piece.Index} : {values[i]}");
+                if (item.piece.Index != values[i])
                 {
                     return;
                 }
+                i++;
             }
             isSolved?.Invoke();
+        }
+
+
+        public void Reset()
+        {
+            count = 0;
+            for(int i = 0; i < puzzlePieces.Length; i++)
+            {
+                piecesPos[i / 3, i % 3].piece = puzzlePieces[i / 3, i % 3];
+                puzzlePieces[i/3, i % 3].transform.position = piecesPos[i/3,i % 3].transform.position;
+                piecesPos[i / 3, i % 3].SetPiece();
+            }
+
+
         }
     }
 }

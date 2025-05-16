@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -31,7 +33,7 @@ namespace Puzzle8
             }
             SetPiece();
 
-
+            puzzleEight.CheckPuzzle();
         }
         public void SetPiece()
         {
