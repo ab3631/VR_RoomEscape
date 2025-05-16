@@ -40,6 +40,7 @@ public class SortedObject : MonoBehaviour
     }
     public void UpdateText()
     {
+        Debug.Log(_index);
         textMeshPro.text = _index.ToString();
     }
     public void OnObjectClick()
