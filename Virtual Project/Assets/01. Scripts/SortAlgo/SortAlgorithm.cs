@@ -124,14 +124,7 @@ public class SortAlgorithm : MonoBehaviour
         {
             if (item.isFixed == false) return;
         }
-        if(GetComplexity() > 41)
-        {
-            Init();
-        }
-        else
-        {
-            OnSorted?.Invoke();
-        }
+        OnSorted?.Invoke();
     }
     public UnityEvent OnSorted;
 

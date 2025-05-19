@@ -2,7 +2,9 @@ using DG.Tweening;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
@@ -119,11 +121,13 @@ namespace Puzzle8
 
         public void CheckPuzzle()
         {
+            var list = values.ToList();
+            list.Sort();
             int i = 0;
             foreach (var item in piecesPos)
             {
-                Debug.Log($"{item.piece.Index} : {values[i]}");
-                if (item.piece.Index != values[i])
+                Debug.Log($"{item.piece.Index} : {list[i]}");
+                if (item.piece.Index != list[i])
                 {
                     return;
                 }

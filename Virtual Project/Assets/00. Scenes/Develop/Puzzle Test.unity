@@ -199492,6 +199492,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: 8Puzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 4537890816451468386, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: m_Name
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: values.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: values.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: isSolved.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: isSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: isSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2010591039}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: isSolved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: isSolved.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: isSolved.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495677714308700519, guid: eac09ee25fb23bc4685582310cde0997,
+        type: 3}
+      propertyPath: isSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7094785589504295422, guid: eac09ee25fb23bc4685582310cde0997,
         type: 3}
       propertyPath: m_RootOrder
@@ -266572,6 +266622,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 449052, guid: 939f27c57ef13654eafcf37ff873a454,
     type: 3}
   m_PrefabInstance: {fileID: 2010590012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2010591039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3622982188032348101, guid: eac09ee25fb23bc4685582310cde0997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1496181366}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2011340193
 PrefabInstance:
