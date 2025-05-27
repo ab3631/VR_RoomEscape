@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SortObject
+  - Weight
   layers:
   - Default
   - TransparentFX
