@@ -44,7 +44,7 @@ public class ScalePuzzle : MonoBehaviour
         }
         if (_leftWeightSum > _rightWeightSum)
         {
-            if(_result != _left)
+            //if(_result != _left)
             {
                 _result = _left; // Left scale is heavier
                 _leftStand.MoveDown();
@@ -53,7 +53,7 @@ public class ScalePuzzle : MonoBehaviour
         }
         else if (_leftWeightSum < _rightWeightSum)
         {
-            if (_result != _right)
+            //if (_result != _right)
             {
                 _result = _right; // Right scale is heavier
                 _leftStand.MoveUp();
@@ -62,7 +62,7 @@ public class ScalePuzzle : MonoBehaviour
         }
         else
         {
-            if (_result != _same)
+            //if (_result != _same)
             {
                 _result = _same; // Both scales are equal
                 _leftStand.MoveMiddle();

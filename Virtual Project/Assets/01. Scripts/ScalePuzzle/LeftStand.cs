@@ -30,14 +30,17 @@ public class LeftStand : MonoBehaviour
 
     public void MoveDown()
     {
-        _rigidbody.MovePosition(_initialPosition + new Vector3(0, -2, 0)); // Move down by 2 units
+        transform.position = Vector3.MoveTowards(transform.position, _initialPosition + new Vector3(0, -1, 0), 0.1f); // Move down towards the initial position - 2 units
+        //_rigidbody.MovePosition(_initialPosition + new Vector3(0, -2, 0)); // Move down by 2 units
     }
     public void MoveUp()
     {
-        _rigidbody.MovePosition(_initialPosition); // Reset to initial position
+        transform.position = Vector3.MoveTowards(transform.position, _initialPosition + new Vector3(0, 1, 0), 0.1f); // Move up towards the initial position + 2 units
+        //_rigidbody.MovePosition(_initialPosition); // Reset to initial position
     }
     public void MoveMiddle()
     {
-        _rigidbody.MovePosition(_initialPosition + new Vector3(0, -1, 0));
+        transform.position = Vector3.MoveTowards(transform.position, _initialPosition, 0.1f); // Move towards the initial position
+       // _rigidbody.MovePosition(_initialPosition + new Vector3(0, -1, 0));
     }
 }

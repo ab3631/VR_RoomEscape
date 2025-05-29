@@ -20,6 +20,7 @@ public class RightStandCollider : MonoBehaviour
     {
         if (trigger.gameObject.CompareTag("Weight"))
         {
+            trigger.gameObject.transform.SetParent(this.transform); // Set the parent of the weight to this stand
             // Handle collision with weight objects
             Weight weight;
             if (!trigger.gameObject.TryGetComponent<Weight>(out weight))
@@ -33,6 +34,7 @@ public class RightStandCollider : MonoBehaviour
     {
         if (trigger.gameObject.CompareTag("Weight"))
         {
+            trigger.gameObject.transform.SetParent(transform.parent.parent); // Remove the parent of the weight when it exits the collider
             // Handle collision exit with weight objects
             Weight weight;
             if (!trigger.gameObject.TryGetComponent<Weight>(out weight))
