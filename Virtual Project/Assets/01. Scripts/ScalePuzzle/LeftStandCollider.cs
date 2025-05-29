@@ -16,26 +16,26 @@ public class LeftStandCollider : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider trigger)
     {
-        if (collision.gameObject.CompareTag("Weight"))
+        if (trigger.gameObject.CompareTag("Weight"))
         {
             // Handle collision with weight objects
             Weight weight;
-            if (!collision.gameObject.TryGetComponent<Weight>(out weight))
+            if (!trigger.gameObject.TryGetComponent<Weight>(out weight))
             {
                 Debug.Log("Weight collided with left stand: " + weight.WeightValue);
             }
             scalePuzzle.LeftscaleWeights.Add(weight); // Add the weight to the left scale weights list
         }
     }
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider trigger)
     {
-        if (collision.gameObject.CompareTag("Weight"))
+        if (trigger.gameObject.CompareTag("Weight"))
         {
             // Handle collision exit with weight objects
             Weight weight;
-            if (!collision.gameObject.TryGetComponent<Weight>(out weight))
+            if (!trigger.gameObject.TryGetComponent<Weight>(out weight))
             {
                 Debug.Log("Weight exited collision with left stand: " + weight.WeightValue);
             }
