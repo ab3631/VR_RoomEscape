@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] InputActionReference inputReference;
 
+    [SerializeField] private Material[] mat = new Material[2];
+                     public Material getMaterial(int i) { return mat[i]; }
+
+
     [SerializeField] public PlayerUI playerUI;
 
     bool check;
@@ -39,8 +43,10 @@ public class UIManager : MonoBehaviour
     {
 
         check = false;
+        canvasGroup.alpha = 0f;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
 
-        UIOnOff();
         inputReference.action.started += OnOffButtonClick;
         playerUI = GameObject.Find("Canvas(PlayerUI)").GetComponent<PlayerUI>();
 
@@ -48,10 +54,7 @@ public class UIManager : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        
-    }
+    void Update() { }
 
     void OnOffButtonClick(InputAction.CallbackContext context)
     {
@@ -63,15 +66,6 @@ public class UIManager : MonoBehaviour
         }
 
         check = !check;
-        Debug.Log("TestMessage");
-
-
-        UIOnOff();
-
-    }
-
-    void UIOnOff()
-    {
 
         if (check)
         {

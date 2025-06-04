@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9109891194272131051
 MonoBehaviour:
@@ -48,6 +48,9 @@ MonoBehaviour:
   canvasGroup: {fileID: 0}
   inputReference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  mat:
+  - {fileID: 2100000, guid: 37fc567f8ac80c74db01ddc3f31b964b, type: 2}
+  - {fileID: 2100000, guid: 6d92f3c585c767c4585b7ae7663fcce4, type: 2}
   playerUI: {fileID: 0}
 --- !u!114 &1796031627518510425
 MonoBehaviour:
