@@ -11,6 +11,9 @@ public class ScalePuzzle : MonoBehaviour
     [SerializeField] private float _leftWeightSum; // Variable to hold the sum of weights on the left scale
     [SerializeField] private float _rightWeightSum; // Variable to hold the sum of weights on the right scale
 
+    [SerializeField] int _puzzleTime = 0;
+    [SerializeField] private DoorOpen _doorOpen; // Reference to the door open script
+
     private int _result;
     const int _left = 0;
     const int _right = 1;
@@ -26,7 +29,7 @@ public class ScalePuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckPuzzleTime();
     }
     private void FixedUpdate()
     {
@@ -67,6 +70,32 @@ public class ScalePuzzle : MonoBehaviour
                 _result = _same; // Both scales are equal
                 _leftStand.MoveMiddle();
                 _rightStand.MoveMiddle();
+            }
+        }
+    }
+    private void CheckPuzzleTime()
+    {
+        if(_puzzleTime == 0)
+        {
+            if (_leftWeightSum < _rightWeightSum)
+            {
+                
+                _puzzleTime = 1; // Move to the next puzzle time
+            }
+        }
+        if(_puzzleTime == 1)
+        {
+            if (_leftWeightSum > _rightWeightSum)
+            {
+                
+                _puzzleTime = 2; // Move to the next puzzle time
+            }
+        }
+        if (_puzzleTime == 2)
+        {
+            if (_leftWeightSum == _rightWeightSum)
+            {
+                _doorOpen.Open(); // Open the door if the left scale is heavier
             }
         }
     }
