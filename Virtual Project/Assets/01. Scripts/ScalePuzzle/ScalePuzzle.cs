@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScalePuzzle : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ScalePuzzle : MonoBehaviour
 
     [SerializeField] int _puzzleTime = 0;
     [SerializeField] private DoorOpen _doorOpen; // Reference to the door open script
+    public UnityEvent OnpuzzleSolved;
 
     private int _result;
     const int _left = 0;
@@ -95,6 +97,7 @@ public class ScalePuzzle : MonoBehaviour
         {
             if (_leftWeightSum == _rightWeightSum)
             {
+                //OnpuzzleSolved?.Invoke();
                 _doorOpen.Open(); // Open the door if the left scale is heavier
             }
         }

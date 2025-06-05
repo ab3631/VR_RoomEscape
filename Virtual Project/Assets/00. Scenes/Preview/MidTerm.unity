@@ -32791,6 +32791,8 @@ MonoBehaviour:
   _rightStand: {fileID: 1496419770}
   _leftWeightSum: 0
   _rightWeightSum: 0
+  _puzzleTime: 0
+  _doorOpen: {fileID: 0}
 --- !u!4 &1228644149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 469326, guid: 68c36969be1a05e4ba39680b7d1b04b8,

@@ -23,7 +23,7 @@ public class DoorOpen : MonoBehaviour
 
     private void Start()
     {
-
+        Debug.Log(rightDoor + " : " + leftDoor);
         if(rightDoor != null) rightDoor.GetComponent<GenerateOutline>().setIsActive(false);
         if(leftDoor != null) leftDoor.GetComponent<GenerateOutline>().setIsActive(false);
 
@@ -33,8 +33,8 @@ public class DoorOpen : MonoBehaviour
 
         if (interactable == null) Debug.Log("Can't Find Interactable");
 
-        GetComponent<XRBaseInteractable>().firstHoverEntered.AddListener(OnHover);
-        GetComponent<XRBaseInteractable>().lastHoverExited.AddListener(OffHover);
+        GetComponent<XRBaseInteractable>()?.firstHoverEntered.AddListener(OnHover);
+        GetComponent<XRBaseInteractable>()?.lastHoverExited.AddListener(OffHover);
 
     }
 
