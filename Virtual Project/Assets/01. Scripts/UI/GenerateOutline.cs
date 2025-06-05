@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -24,9 +25,20 @@ public class GenerateOutline : MonoBehaviour
 
     void Start()
     {
+        // init
+
+        isActive = true;
+
+        mat[0] = GetComponent<Renderer>().materials[0];
+
+        Material[] update = new Material[2];
+        update[0] = mat[0]; update[1] = mat[0];
+        GetComponent<Renderer>().materials = update;
+
+        mat[1] = UIManager.Instance.getMaterial(0);
+        mat[2] = UIManager.Instance.getMaterial(1);
 
         interactable = GetComponent<XRBaseInteractable>();
-
         if (interactable == null) Debug.Log("Can't Find Interactable");
 
         GetComponent<XRBaseInteractable>().firstHoverEntered.AddListener(HoverEnter);
