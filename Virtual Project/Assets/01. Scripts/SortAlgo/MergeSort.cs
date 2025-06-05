@@ -1,10 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using Unity.Mathematics;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class MergeSort : MonoBehaviour
