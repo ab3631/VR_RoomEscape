@@ -6,10 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00. Scenes/Develop/Map Design/map.unity
-    guid: e7db671c2ca28cd458da355b8cbf4471
+    path: Assets/00. Scenes/Preview/MidTerm.unity
+    guid: 4ead0aac9c0c7fe49af5f72e9209bdef
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 9917d1d28fbf69249832eb0973113612,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 261da05eaf4c98c4b95ea53626269594,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 8724b14ad4315c04a811bf213e84a342,
       type: 2}
