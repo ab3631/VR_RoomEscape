@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00. Scenes/Preview/MidTerm.unity
-    guid: 4ead0aac9c0c7fe49af5f72e9209bdef
+    path: Assets/00. Scenes/Develop/Map Design/map.unity
+    guid: e7db671c2ca28cd458da355b8cbf4471
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 9917d1d28fbf69249832eb0973113612,
       type: 2}
