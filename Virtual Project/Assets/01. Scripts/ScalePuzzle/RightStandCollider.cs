@@ -20,7 +20,7 @@ public class RightStandCollider : MonoBehaviour
     {
         if (trigger.gameObject.CompareTag("Weight"))
         {
-            trigger.gameObject.transform.SetParent(this.transform); // Set the parent of the weight to this stand
+            //trigger.gameObject.transform.SetParent(this.transform); // Set the parent of the weight to this stand
             // Handle collision with weight objects
             Weight weight;
             if (!trigger.gameObject.TryGetComponent<Weight>(out weight))

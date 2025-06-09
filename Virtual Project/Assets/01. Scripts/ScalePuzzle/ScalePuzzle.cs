@@ -95,7 +95,7 @@ public class ScalePuzzle : MonoBehaviour
         }
         if (_puzzleTime == 2)
         {
-            if (_leftWeightSum == _rightWeightSum)
+            if ((_leftWeightSum == _rightWeightSum) && _leftWeightSum != 0)
             {
                 //OnpuzzleSolved?.Invoke();
                 _doorOpen.Open(); // Open the door if the left scale is heavier
