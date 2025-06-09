@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ArrayPuzzle : MonoBehaviour
 {
@@ -40,9 +41,11 @@ public class ArrayPuzzle : MonoBehaviour
         
     }
 
+    public UnityEvent doorOpen;
+
     void clearPuzzle()
     {
-        Debug.Log("[Debug] Clear ArrayPuzzle!");
+        doorOpen?.Invoke();
     }
 
 }
