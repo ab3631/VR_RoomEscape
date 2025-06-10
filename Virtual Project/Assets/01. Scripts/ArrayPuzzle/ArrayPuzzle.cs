@@ -7,7 +7,9 @@ public class ArrayPuzzle : MonoBehaviour
 {
 
     [SerializeField] int count;
-    public void upCount() { if (++count == 4) clearPuzzle(); }
+    [SerializeField] bool isClear;
+
+    public void upCount() { if (!isClear && ++count == 4) clearPuzzle(); }
     public void downCount() { count--; }
 
     private static ArrayPuzzle instance = null;
@@ -33,6 +35,7 @@ public class ArrayPuzzle : MonoBehaviour
     void Start()
     {
         count = 0;
+        isClear = false;
     }
 
     // Update is called once per frame
@@ -46,6 +49,7 @@ public class ArrayPuzzle : MonoBehaviour
     void clearPuzzle()
     {
         doorOpen?.Invoke();
+        isClear = true;
     }
 
 }
