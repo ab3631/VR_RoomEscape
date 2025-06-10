@@ -10,7 +10,6 @@ public class ClickMagicStone : MonoBehaviour
 {
 
     [Header("XR Interaction")]
-    [SerializeField] InputActionReference inputReference;
     [SerializeField] XRBaseInteractable interactable;
 
     [Header("UI Interaction")]
@@ -22,8 +21,9 @@ public class ClickMagicStone : MonoBehaviour
     void Start()
     {
         isHover = false;
-        inputReference.action.started += ButtonClick;
+        
         interactable = GetComponent<XRBaseInteractable>();
+        interactable.firstSelectEntered.AddListener(ButtonClick);
 
         if (interactable == null) Debug.Log("Can't Find Interactable");
 
@@ -56,6 +56,21 @@ public class ClickMagicStone : MonoBehaviour
             
             this.gameObject.SetActive(false);
             
+        }
+
+    }
+
+    void ButtonClick(SelectEnterEventArgs args)
+    {
+        if (isHover)
+        {
+
+            Debug.Log("Rooting Item");
+
+            UIManager.Instance.ClickObject(text);
+
+            this.gameObject.SetActive(false);
+
         }
 
     }
