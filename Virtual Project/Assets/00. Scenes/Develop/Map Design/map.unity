@@ -14318,19 +14318,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 91696966}
-        m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
-        m_MethodName: SetDescription
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: "(0,1), (1,2),(3,0),(3,3)\uC5D0 \\n\uBE14\uB7ED\uC744
-            \uC124\uCE58\uD558\uC138\uC694."
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &527849601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36205,20 +36192,7 @@ MonoBehaviour:
   rightDoorAngle: 90
   OnDoorOpen:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 91696966}
-        m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
-        m_MethodName: SetDescription
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: "\uC704\uB85C \uAC08\uC218\uB85D \uC810\uC810 \uC881\uC544\uC9C0\uB294
-            \uD53C\uB77C\uBBF8\uB4DC\uB97C \uB9CC\uB4DC\uC138\uC694."
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &1415317557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45281,7 +45255,7 @@ PrefabInstance:
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
