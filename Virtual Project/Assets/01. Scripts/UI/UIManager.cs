@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Material[] mat = new Material[2];
                      public Material getMaterial(int i) { return mat[i]; }
 
+    [SerializeField] private XRGrabInteractable interactable;
+                     public XRGrabInteractable GetGrabInteractable() { return interactable; }
 
     [SerializeField] public PlayerUI playerUI;
 

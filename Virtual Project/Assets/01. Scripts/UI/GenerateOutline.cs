@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Scripting;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class GenerateOutline : MonoBehaviour
@@ -39,7 +40,14 @@ public class GenerateOutline : MonoBehaviour
         mat[2] = UIManager.Instance.getMaterial(1);
 
         interactable = GetComponent<XRBaseInteractable>();
-        if (interactable == null) Debug.Log("Can't Find Interactable");
+        if (interactable == null) { 
+            
+            interactable = this.AddComponent<XRGrabInteractable>();
+
+            XRGrabInteractable grab = interactable as XRGrabInteractable;
+            grab.movementType = XRGrabInteractable.MovementType.VelocityTracking;
+        
+        }
 
         GetComponent<XRBaseInteractable>().firstHoverEntered.AddListener(HoverEnter);
         GetComponent<XRBaseInteractable>().lastHoverExited.AddListener(HoverExit);

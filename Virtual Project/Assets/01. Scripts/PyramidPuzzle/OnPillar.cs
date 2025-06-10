@@ -49,7 +49,7 @@ public class OnPillar : MonoBehaviour
 
             grabObject.transform.SetParent(transform);
             grabObject.transform.localPosition = new Vector3(0f, 1.5f, 0f);
-            grabObject.transform.rotation = Quaternion.Euler(90f, 0f, 180f);
+            grabObject.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
 
             grabObject.selectExited.AddListener(OnGrabbed);
 
