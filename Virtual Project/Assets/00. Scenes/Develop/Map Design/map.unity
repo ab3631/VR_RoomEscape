@@ -3802,6 +3802,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b55c5c89af6466b4eac975ed5d76d2cb, type: 3}
+--- !u!82 &109465890 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5314017753752838034, guid: c94edb9829e449d498588da24b658696,
+    type: 3}
+  m_PrefabInstance: {fileID: 489127418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &109642717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37435,7 +37441,19 @@ MonoBehaviour:
   _doorOpen: {fileID: 1413597267}
   OnpuzzleSolved:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 109465890}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1413597267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41687,7 +41705,7 @@ PrefabInstance:
     - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
         type: 3}
@@ -41696,12 +41714,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
         type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
+        type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1611244792}
     - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
         type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 109465890}
+    - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
+        type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
+        type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
@@ -41711,12 +41744,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
         type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
+        type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
         type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
+        type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723066023339469173, guid: a68170bf5f5719943a2aff15ae645e0c,
+        type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7899749665249827061, guid: a68170bf5f5719943a2aff15ae645e0c,
@@ -46673,7 +46721,7 @@ PrefabInstance:
     - target: {fileID: 453588452749839272, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 755232939159011996, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -46683,7 +46731,7 @@ PrefabInstance:
     - target: {fileID: 755232939159011996, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 887358902682196440, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -46693,7 +46741,7 @@ PrefabInstance:
     - target: {fileID: 887358902682196440, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 971335735926891696, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -46793,7 +46841,7 @@ PrefabInstance:
     - target: {fileID: 1506919526197622682, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1726048445111121234, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -46813,7 +46861,7 @@ PrefabInstance:
     - target: {fileID: 2310742341408272619, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2379751159171758416, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -46858,7 +46906,7 @@ PrefabInstance:
     - target: {fileID: 2668879046958077201, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2904142157798127972, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -46943,7 +46991,7 @@ PrefabInstance:
     - target: {fileID: 4256698428741926818, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4361129276620697421, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47003,7 +47051,7 @@ PrefabInstance:
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47018,7 +47066,7 @@ PrefabInstance:
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47029,7 +47077,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 91696966}
+      objectReference: {fileID: 109465890}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: clearPuzzle.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -47058,7 +47106,7 @@ PrefabInstance:
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetDescription
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47078,7 +47126,7 @@ PrefabInstance:
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PlayerUI, Assembly-CSharp
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47088,8 +47136,7 @@ PrefabInstance:
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: "\uB2E4\uC74C \uB9F5\uC73C\uB85C \uC774\uB3D9\uD574\uC11C \\n\uD33B\uB9D0\uC5D0
-        \uB9DE\uAC8C \uC800\uC6B8\uC5D0 \uBE14\uB7ED\\n\uC744 \uC62C\uB824\uB193\uC73C\uC138\uC694."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47144,7 +47191,7 @@ PrefabInstance:
     - target: {fileID: 6102075463731418469, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6205182758197683602, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47164,7 +47211,7 @@ PrefabInstance:
     - target: {fileID: 6800484348367753716, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6801881414581023575, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47174,7 +47221,7 @@ PrefabInstance:
     - target: {fileID: 6801881414581023575, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7169567012974875748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47184,7 +47231,7 @@ PrefabInstance:
     - target: {fileID: 7169567012974875748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7338250278906599373, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47224,7 +47271,7 @@ PrefabInstance:
     - target: {fileID: 7384503007545997483, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7444345435011987256, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47234,7 +47281,7 @@ PrefabInstance:
     - target: {fileID: 7444345435011987256, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7690327780422122269, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47244,7 +47291,7 @@ PrefabInstance:
     - target: {fileID: 7690327780422122269, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7887043511840610797, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47254,7 +47301,7 @@ PrefabInstance:
     - target: {fileID: 7887043511840610797, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8025971817602995501, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -47304,7 +47351,7 @@ PrefabInstance:
     - target: {fileID: 9084939516410906430, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9164996131657331262, guid: 598a277bbda137748926f8220640470b,
         type: 3}
