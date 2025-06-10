@@ -36205,7 +36205,20 @@ MonoBehaviour:
   rightDoorAngle: 90
   OnDoorOpen:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 91696966}
+        m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
+        m_MethodName: SetDescription
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "\uC704\uB85C \uAC08\uC218\uB85D \uC810\uC810 \uC881\uC544\uC9C0\uB294
+            \uD53C\uB77C\uBBF8\uB4DC\uB97C \uB9CC\uB4DC\uC138\uC694."
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1415317557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45268,7 +45281,7 @@ PrefabInstance:
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -45282,9 +45295,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
+        type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1798879801}
+    - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
+        type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 91696966}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: clearPuzzle.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -45302,8 +45325,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
+        type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
+        type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetDescription
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -45322,8 +45355,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
+        type: 3}
       propertyPath: clearPuzzle.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
+        type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: "\uB2E4\uC74C \uB9F5\uC73C\uB85C \uC774\uB3D9\uD574\uC11C \\n\uD33B\uB9D0\uC5D0
+        \uB9DE\uAC8C \uC800\uC6B8\uC5D0 \uBE14\uB7ED\\n\uC744 \uC62C\uB824\uB193\uC73C\uC138\uC694."
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
@@ -45333,6 +45377,11 @@ PrefabInstance:
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
         type: 3}
       propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
+        type: 3}
+      propertyPath: doorOpen.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4754247559361987748, guid: 598a277bbda137748926f8220640470b,
