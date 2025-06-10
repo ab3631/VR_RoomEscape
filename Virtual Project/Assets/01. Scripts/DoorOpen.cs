@@ -11,7 +11,6 @@ public class DoorOpen : MonoBehaviour
 {
 
     [Header("XR Interaction")]
-    [SerializeField] InputActionReference inputReference;
     [SerializeField] XRBaseInteractable interactable;
 
     bool isHover;
@@ -26,13 +25,18 @@ public class DoorOpen : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(rightDoor + " : " + leftDoor);
+        //Debug.Log(rightDoor + " : " + leftDoor);
         if(rightDoor != null) rightDoor.GetComponent<GenerateOutline>().setIsActive(false);
         if(leftDoor != null) leftDoor.GetComponent<GenerateOutline>().setIsActive(false);
 
         isHover = false;
-        inputReference.action.started += ButtonClick;
+        //inputReference.action.started += ButtonClick;
         interactable = GetComponent<XRBaseInteractable>();
+        if (interactable != null)
+        {
+            interactable.firstSelectEntered.AddListener(ButtonClick);
+        }
+
 
         if (interactable == null) Debug.Log("Can't Find Interactable");
 
@@ -61,7 +65,20 @@ public class DoorOpen : MonoBehaviour
         Debug.Log("Tetasdfasdfasdf");
 
     }
+    void ButtonClick(SelectEnterEventArgs args)
+    {
 
+        if (isHover && GetComponent<GenerateOutline>().getIsActive())
+        {
+
+            //Debug.Log("Test");
+            Open();
+
+        }
+
+        //Debug.Log("Tetasdfasdfasdf");
+
+    }
     public void OnHover(HoverEnterEventArgs args)
     {
 
