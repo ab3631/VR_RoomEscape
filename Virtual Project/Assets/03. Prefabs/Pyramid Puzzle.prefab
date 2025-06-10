@@ -709,6 +709,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   block: {fileID: 6448694414987785783, guid: 5e519721bba5cb14b802b7ae3b17f085, type: 3}
   score: 0000000000000000000000000000000000000000
+  doorOpen:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1960976343686533531
 GameObject:
   m_ObjectHideFlags: 0

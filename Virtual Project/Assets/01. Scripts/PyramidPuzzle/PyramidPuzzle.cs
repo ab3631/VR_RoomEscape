@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PyramidPuzzle : MonoBehaviour
 {
@@ -88,9 +89,11 @@ public class PyramidPuzzle : MonoBehaviour
 
     }
 
+    public UnityEvent doorOpen;
+
     private void clearPuzzle()
     {
-        Debug.Log("[Debug] Clear PyramidPuzzle");
+        doorOpen?.Invoke();
     }
 
 }
