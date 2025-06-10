@@ -3,6 +3,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -20,6 +21,8 @@ public class DoorOpen : MonoBehaviour
 
     public float leftDoorAngle;
     public float rightDoorAngle;
+
+    public UnityEvent OnDoorOpen;
 
     private void Start()
     {
@@ -89,5 +92,6 @@ public class DoorOpen : MonoBehaviour
             rightDoor.transform.DOLocalRotate(new Vector3(0, rightDoorAngle, 0), 1f);
 
         }
+        OnDoorOpen?.Invoke();
     }
 }

@@ -15,9 +15,12 @@ public class PlayerUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI middleTurmTextMessage;
 
+    public List<GameObject> inventoryItems;
+
     // Start is called before the first frame update
     void Start()
     {
+        inventoryItems = new List<GameObject>();
         count = 0;
     }
 
@@ -29,8 +32,9 @@ public class PlayerUI : MonoBehaviour
 
     public void addItem(string text)
     {
-
+        
         GameObject item = Instantiate(itemPrefab, itemTransform);
+        inventoryItems.Add(item);
 
         item.GetComponentInChildren<TextMeshProUGUI>().text = text;
 
@@ -46,5 +50,19 @@ public class PlayerUI : MonoBehaviour
 
     }
 
+    public void ClearItem()
+    {
+        foreach (var item in inventoryItems)
+        {
+            Destroy(item);
+        }
+        inventoryItems.Clear();
+    }
+
+
+    public void SetDescription(string description)
+    {
+        middleTurmTextMessage.text = description;
+    }
 
 }
