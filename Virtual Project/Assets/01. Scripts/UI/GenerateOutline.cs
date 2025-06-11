@@ -9,6 +9,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class GenerateOutline : MonoBehaviour
 {
 
+    private Vector3 initPosition;
+    public float maxDistance = 500f;
+
     [SerializeField] private Material[] mat = new Material[3];
     [SerializeField] private XRBaseInteractable interactable;
 
@@ -29,6 +32,8 @@ public class GenerateOutline : MonoBehaviour
         // init
 
         isActive = true;
+
+        initPosition = transform.position;
 
         mat[0] = GetComponent<Renderer>().materials[0];
 
@@ -57,7 +62,32 @@ public class GenerateOutline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        float distance = Vector3.Distance(transform.position, initPosition);
+
+        if(distance > maxDistance)
+        {
+
+            transform.position = initPosition;
+
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if(rb != null)
+            {
+
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+
+            }
+
+        }
         
+    }
+
+    public void PositionReset()
+    {
+
+
+
     }
 
     public void HoverEnter(HoverEnterEventArgs args)

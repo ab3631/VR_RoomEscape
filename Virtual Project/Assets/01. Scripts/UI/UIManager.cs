@@ -50,10 +50,12 @@ public class UIManager : MonoBehaviour
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
 
+        /*
         inputReference.action.started += OnOffButtonClick;
         playerUI = GameObject.Find("Canvas(PlayerUI)").GetComponent<PlayerUI>();
 
         if(playerUI != null) Debug.Log("Find PlayerUI");
+        */
 
     }
 

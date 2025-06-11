@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class PlayerUI : MonoBehaviour
 
     [SerializeField] private GameObject door;
     int count;
-
-    [SerializeField] private TextMeshProUGUI middleTurmTextMessage;
 
     public List<GameObject> inventoryItems;
 
@@ -30,6 +29,8 @@ public class PlayerUI : MonoBehaviour
         
     }
 
+    public UnityEvent doorOpen;
+
     public void addItem(string text)
     {
         
@@ -44,7 +45,7 @@ public class PlayerUI : MonoBehaviour
             door.GetComponent<GenerateOutline>().setIsActive(true);
             door.GetComponent<DoorOpen>().rightDoor.GetComponent<GenerateOutline>().setIsActive(true);
 
-            middleTurmTextMessage.text = "문을 클릭하여 열어주세요.";
+            doorOpen?.Invoke();
 
         }
 
@@ -60,9 +61,5 @@ public class PlayerUI : MonoBehaviour
     }
 
 
-    public void SetDescription(string description)
-    {
-        middleTurmTextMessage.text = description;
-    }
 
 }

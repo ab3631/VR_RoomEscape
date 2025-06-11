@@ -9,6 +9,6 @@ public class UITextSetter : MonoBehaviour
 
     public void SetUIText()
     {
-        UIManager.Instance.playerUI.SetDescription(text);
+        // UIManager.Instance.playerUI.SetDescription(text);
     }
 }
